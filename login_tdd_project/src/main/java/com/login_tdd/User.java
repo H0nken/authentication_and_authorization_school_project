@@ -4,6 +4,7 @@ public class User {
 
     String userName;
     String password;
+    String token;
 
     public User(String userName, String password) {
         this.userName = userName;
@@ -18,4 +19,17 @@ public class User {
     public String getPassword() {
         return password;
     }
+
+
+    public String getToken() {
+        if (this.token!=null){
+            return token;
+        }else return null;
+
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
+
 }

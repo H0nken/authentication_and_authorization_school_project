@@ -2,7 +2,7 @@ package com.login_tdd;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 public class Login {
@@ -18,31 +18,21 @@ public class Login {
         validUsers.add(new User("kalle", "password"));
     }
 
-    /*
-    public Boolean loginStart() {
-        Scanner loginInput = new Scanner(System.in);
+    public String loginCheck(String username, String password) throws LoginFail {
 
-        System.out.println("Username: ");
-        String userName = loginInput.nextLine();
-
-        System.out.println("Password: ");
-        String passWord = loginInput.nextLine();
-
-        return loginCheck(userName, passWord);
-
-    }
-     */
-
-    public Boolean loginCheck(String username, String password) {
         List<User> checkUser = validUsers.stream().filter(user -> user.getUserName().
                 equals(username) && user.getPassword().equals(password)).
                 collect(Collectors.toList());
 
-        if (checkUser.size()>0) {
-            return true;
-        }else return false;
+        if (checkUser.size() == 0) {
+            throw new LoginFail("You are not a valid user");
+        }
+        UUID uuid = UUID.randomUUID();
+        String token = uuid.toString();
+        return token;
 
     }
+
 
     public List<User> getValidUsers() {
         return validUsers;
