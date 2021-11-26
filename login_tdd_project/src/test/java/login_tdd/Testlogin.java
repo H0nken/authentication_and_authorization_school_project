@@ -44,13 +44,7 @@ public class Testlogin {
 
     @Test
     void test_login_success() throws LoginFail {
-        assertEquals(36, login.loginCheck("anna", "losen"));
-        System.out.println(login.loginCheck("anna", "losen"));
-    }
-
-    @Test
-    void test_bad_token() {
-        assertEquals("Not valid", token);
+        assertNotNull(login.loginCheck("anna", "losen"));
     }
 
     @Test
@@ -92,14 +86,6 @@ public class Testlogin {
 
         assertEquals(List.of("READ", "WRITE"), Arrays.asList(advancedGameReturn));
     }
-
-    @Test
-    void test_advanced_game_Username_fail() throws TokenFail {
-        AdvancedGame advancedGame = new AdvancedGame();
-
-        assertEquals(2, advancedGame.playAdvancedGame(token2, users.get(2).resource()).length);
-    }
-
 
 }
 

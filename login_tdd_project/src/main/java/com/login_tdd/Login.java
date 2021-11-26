@@ -11,12 +11,9 @@ public class Login {
     List<User> validUsers = new ArrayList<>();
 
     public Login() {
-
         validUsers.add(new User("anna", "losen", "ACCOUNT", new String[]{"READ"}));
         validUsers.add(new User("berit", "123456", "ACCOUNT", new String[]{"READ", "WRITE"}));
         validUsers.add(new User("kalle", "password", "PROVISION_CALC", new String[]{"EXECUTE"}));
-
-
     }
 
     public Token loginCheck(String username, String password) throws LoginFail {
