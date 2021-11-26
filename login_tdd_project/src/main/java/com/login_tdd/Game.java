@@ -2,12 +2,12 @@ package com.login_tdd;
 
 public class Game {
 
-    public Boolean playGame (String token) {
-        if (token.length()!=36) {
-           return false;
-        }return true;
+    public void Game() {
 
     }
-
-
+    public void startGame(Token token) {
+        if (token.getTokenId().length()==36) {
+            System.out.println(token.playGame());
+        }
+    }
 }
