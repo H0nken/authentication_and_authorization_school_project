@@ -1,16 +1,18 @@
 package com.login_tdd;
 
-public class User {
+public class User implements Access {
 
     String userName;
     String password;
-    String token;
+    String resource;
+    String[] rights;
 
-    public User(String userName, String password) {
+    public User(String userName, String password, String resource, String[] rights) {
         this.userName = userName;
         this.password = password;
+        this.resource = resource;
+        this.rights = rights;
     }
-
 
     public String getUserName() {
         return userName;
@@ -21,15 +23,13 @@ public class User {
     }
 
 
-    public String getToken() {
-        if (this.token!=null){
-            return token;
-        }else return null;
-
+    @Override
+    public String resource() {
+        return this.resource;
     }
 
-    public void setToken(String token) {
-        this.token = token;
+    @Override
+    public String[] rights() {
+        return this.rights;
     }
-
 }
